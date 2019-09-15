@@ -20,7 +20,7 @@ module AudioComp
     # Compare two fingerprints
     # Takes in fingerprint to compare with and returns a float in 0..1 range where 1 is 100% match
     def compare (fingerprint)
-      maximum_raw_size = [@raw.size, fingerprint.raw.size]
+      maximum_raw_size = [@raw.size, fingerprint.raw.size].max
       bit_size = maximum_raw_size * BITS_IN_RAW_FP
 
       distance = hamming_distance(@raw, fingerprint.raw)
